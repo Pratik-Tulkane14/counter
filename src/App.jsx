@@ -10,6 +10,11 @@ function App() {
     setIsCounterStart(false);
     setCount(0);
   };
+  const formatTime = (seconds) => {
+    const timeInMintes = Math.floor(seconds / 60);
+    const timeInSeconds = seconds % 60;
+    return `${timeInMintes}:${timeInSeconds}`;
+  };
   const handleToggle = () => {
     setIsCounterStart(!isCounterStart);
   };
@@ -17,15 +22,15 @@ function App() {
     let interval;
     if (isCounterStart) {
       interval = setTimeout(() => {
-        setCount((prev)=>prev+1);
+        setCount((prev) => prev + 1);
       }, 1000);
-    } else  {
+    } else {
       clearTimeout(interval);
     }
     return () => {
       clearInterval(interval);
     };
-  }, [isCounterStart,count]);
+  }, [isCounterStart, count]);
   return (
     <div>
       <p
@@ -35,7 +40,7 @@ function App() {
       >
         Stopwatch
       </p>
-      <p>Time:{count}</p>
+      <p>Time: {formatTime(count)}</p>
       <button onClick={() => handleToggle()}>
         {isCounterStart ? "Stop" : "Start"}
       </button>
