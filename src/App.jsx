@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(58);
   const [isCounterStart, setIsCounterStart] = useState(false);
   const handleReset = () => {
     setIsCounterStart(false);
@@ -13,9 +13,8 @@ function App() {
   const formatTime = (seconds) => {
     const timeInMintes = Math.floor(seconds / 60);
     const timeInSeconds = seconds % 60;
-    const formatedSeconds =
-      timeInSeconds < 10 ? `0${timeInSeconds}` : timeInSeconds;
-    return `${timeInMintes}:${formatedSeconds}`;
+    const paddedTime = String(timeInSeconds).padStart(2, "0");
+    return `${timeInMintes}:${paddedTime}`;
   };
   const handleToggle = () => {
     setIsCounterStart(!isCounterStart);
