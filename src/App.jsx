@@ -12,10 +12,10 @@ function App() {
   };
   const formatTime = (seconds) => {
     const timeInMintes = Math.floor(seconds / 60);
-    
+
     const timeInSeconds = seconds % 60;
     const paddedTime = String(timeInSeconds).padStart(2, "0");
-    return `${timeInMintes}:${paddedTime}`;
+    return `${timeInMintes}:${paddedTime} ${timeInMintes > 0 ? "minute" : ""}`;
   };
   const handleToggle = () => {
     setIsCounterStart(!isCounterStart);
