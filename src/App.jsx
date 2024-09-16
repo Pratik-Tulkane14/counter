@@ -22,11 +22,11 @@ function App() {
   useEffect(() => {
     let interval;
     if (isCounterStart) {
-      interval = setTimeout(() => {
+      interval = setInterval(() => {
         setCount((prev) => prev + 1);
       }, 1000);
     } else {
-      clearTimeout(interval);
+      clearInterval(interval);
     }
     return () => {
       clearInterval(interval);
