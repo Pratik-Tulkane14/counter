@@ -24,6 +24,7 @@ function App() {
     if (isCounterStart) {
       interval = setInterval(() => {
         setCount((prev) => prev + 1);
+        
       }, 1000);
     } else {
       clearInterval(interval);
